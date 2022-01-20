@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Khan Academy Video Controller",
+    "version": "1.0.0",
+    "description": "Provides default video controls that apply on all videos",
+    "short_name": "KAVC",
+    "permissions": ["storage", "activeTab", "scripting", "webNavigation", "identity"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "all_frames": true,
+        "matches": ["https://www.khanacademy.org/*", "https://www.youtube-nocookie.com/*", "https://www.youtube-nocookie.com/embed/*"],
+        "match_about_blank": true,
+        "js": ["inject.js"],
+        "css": ["content.css"]
+      } 
+    ],
+    "action": {
+      "default_title": "Does a thing when you do a thing",
+      "default_popup": "popup/popup.html",
+      "default_icon": {
+        "128": "icons/khan.png"
+      }
+    },
+    "icons": {
+       "128": "icons/khan.png"
+     }
+   }
